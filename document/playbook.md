@@ -82,4 +82,26 @@ nameserver 10.1.250.0
             path: /etc/resolv.conf
             line: 'nameserver {{dns_server}}
 ```
-
+- **Sample Inventory File**
+```sh
+Web http_port=8081 snmp_port=161-162 inter_ip_ranger=192.0.2.0
+```
+`playbook.yml`
+```sh
+-
+    name: Set firewall configuration
+    hosts: Web
+    tasks:
+    - firewalld:
+        service: https
+        permanent: true
+        state: enabled
+    - firewalld:
+        port: '{{ http_port }}'/tcp
+        permanent: true
+        state: disabled
+    - firewalld:
+        source: `{{ intr_ip_ranger }}`
+        Zone: internal
+        state: enabled
+```
