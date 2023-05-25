@@ -8,13 +8,10 @@
 + shutdown/restart
 # RUN
 ## excute ansible playbook
-```sh
 |ansible|ansible-playbook|
 |-------|----------------|
 |ansible <hosts> -a <command> | ansible-playbook <playbook name>|
 |ansible all -a "/sbin/reboot"| ansible-playbook playbook-webserver.yaml |
-|ansible <hosts> -m <module>| |
-|ansible target1 -m ping ||
-
-```
+|ansible <hosts> -m <module>|  |
+|ansible target1 -m ping | |
 
