@@ -61,7 +61,7 @@ nameserver 10.1.250.0
     tasks:
       - lineinfile:
             path: /etc/resolv.conf
-            line: 'nameserver 10.1.250.10
+            line: 'nameserver 10.1.250.10'
 ```
 ## database
 - helping working with database
@@ -80,11 +80,17 @@ nameserver 10.1.250.0
     tasks:
       - lineinfile:
             path: /etc/resolv.conf
-            line: 'nameserver {{dns_server}}
+            line: 'nameserver {{dns_server}}'
 ```
 - **Sample Inventory File**
 ```sh
 Web http_port=8081 snmp_port=161-162 inter_ip_ranger=192.0.2.0
+```
+- **Sample variable File - web.yml**
+```sh
+http_port=8081
+snmp_port=161-162
+inter_ip_ranger=192.0.2.0
 ```
 `playbook.yml`
 ```sh
@@ -104,4 +110,24 @@ Web http_port=8081 snmp_port=161-162 inter_ip_ranger=192.0.2.0
         source: `{{ intr_ip_ranger }}`
         Zone: internal
         state: enabled
+```
+# Condittionas
+- when: << condition >>, task excute when condition = true.
+```sh
+-
+    name: Install nginx
+    hosts: all
+    tasks:
+    -   name: install nginx on debian
+        apt: 
+            name: nginx
+            state: present
+        when: ansible_os_family == "Debian" and
+              ansible_distribution_version == "16.04"
+    -   name: Install nginx on redhat
+        yum:
+            name: nginx
+            state: present
+        when: ansible_os_family == "redhat" or
+              ansible_os_family == "SUSER"
 ```
