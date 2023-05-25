@@ -31,7 +31,9 @@
        service:
          name: nginx
          state: started
+        
 ```
+** started,restarted, stopped**
 ## Commands
 - used to excute command or script on a host (command, expect, raw, script shell)
 ### command
