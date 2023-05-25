@@ -70,4 +70,16 @@ nameserver 10.1.250.0
 
 # Variable
 - stores information  that varies with each host
+`playbook.yml`
+```sh
+-
+    name: Add DNS server to resolv.conf
+    hosts: localhost
+    vars: 
+        dns_server: 10.1.250.10
+    tasks:
+      - lineinfile:
+            path: /etc/resolv.conf
+            line: 'nameserver {{dns_server}}
+```
 
