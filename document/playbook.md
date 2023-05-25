@@ -107,7 +107,7 @@ inter_ip_ranger=192.0.2.0
         permanent: true
         state: disabled
     - firewalld:
-        source: `{{ intr_ip_ranger }}`
+        source: '{{ intr_ip_ranger }}'
         Zone: internal
         state: enabled
 ```
@@ -131,3 +131,39 @@ inter_ip_ranger=192.0.2.0
         when: ansible_os_family == "redhat" or
               ansible_os_family == "SUSER"
 ```
+# Loop
+- loop: << list item>> 
+```sh
+-
+    name: Install nginx
+    hosts: all
+    vars:
+        packages:
+        - name: nginx
+          required: True
+        - name: mysql
+          required
+        - name: apache
+          required: False
+    tasks:
+    -   name: install nginx on debian
+        apt: 
+            name: nginx
+            state: present
+        when: "{{ item.required }}
+        loop: " {{packages}} "
+```
+- with_*
+```sh
+-
+    name: Create Users
+    hosts: localhost
+    tasks:
+     - user: name='{{ item }} state=present
+       with_items: 
+        - joe
+        - george
+        - ravi
+        - mani
+```
+*with_items, with_url, with_file, with_mongodb*
