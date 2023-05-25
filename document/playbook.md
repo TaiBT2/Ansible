@@ -34,6 +34,7 @@
         
 ```
 ** started,restarted, stopped**
+
 ## Commands
 - used to excute command or script on a host (command, expect, raw, script shell)
 ### command
@@ -44,6 +45,23 @@
 - 
 ## File
 -  helping work with file
+### lineinfile
+- Search for a line  in a file and replace it or add it if it doesnlt exits
+/etc/resolv.conf
+```sh
+nameserver 10.2.250.1
+nameserver 10.1.250.0
+```
+playbook.yml
+```sh
+-
+    name: Add DNS server to resolv.conf
+    hosts: localhost
+    tasks:
+      - lineinfile:
+            path: /etc/resolv.conf
+            line: 'nameserver 10.1.250.10
+```
 ## database
 - helping working with database
 ## cloud
