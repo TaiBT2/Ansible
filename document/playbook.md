@@ -63,7 +63,7 @@ nameserver 10.1.250.0
             line: 'nameserver 10.1.250.10'
 ```
 
-# Variable
+## Variable
 - stores information  that varies with each host
 `playbook.yml`
 ```sh
@@ -106,7 +106,7 @@ inter_ip_ranger=192.0.2.0
         Zone: internal
         state: enabled
 ```
-# Condittionas
+## Condittionas
 - when: << condition >>, task excute when condition = true.
 ```sh
 -
@@ -126,7 +126,7 @@ inter_ip_ranger=192.0.2.0
         when: ansible_os_family == "redhat" or
               ansible_os_family == "SUSER"
 ```
-# Loop
+## Loop
 - loop: << list item>> 
 ```sh
 -
