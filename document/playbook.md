@@ -1,5 +1,5 @@
 # Playbook
-## play
+**play**
 - Defines a set tasks to be run hosts
 - Task: An action to be performed on the host
 + Excute command
@@ -7,7 +7,7 @@
 + install a package
 + shutdown/restart
 # RUN
-## excute ansible playbook
+**excute ansible playbook**
 |ansible|ansible-playbook|
 |-------|----------------|
 |ansible <hosts> -a <command> | ansible-playbook <playbook name>|
@@ -18,7 +18,7 @@
 ##  System
 - System is a acction excute at a system level
 - User, Group, hostname, iptables, Lvg, Lvol, Make, Mount, Ping, Timezone, systemd, Service
-### service
+**service**
 - manage services - start, st, restart
 ```sh
 -
@@ -35,17 +35,16 @@
 ```
 **started,restarted, stopped**
 
-## Commands
+**Commands**
 - used to excute command or script on a host (command, expect, raw, script shell)
-### command
-- chdir: cd into the directory before running the command
-- creates: filename if it already exits, this step will not be run
-### script
+- command:
+    - chdir: cd into the directory before running the command
+    - creates: filename if it already exits, this step will not be run
+**script**
 - run a local script on a remote node 
-- 
-## File
+**File**
 -  helping work with file
-### lineinfile
+**lineinfile**
 - Search for a line  in a file and replace it or add it if it doesnlt exits. 
 - .
 `/etc/resolv.conf`
@@ -63,10 +62,6 @@ nameserver 10.1.250.0
             path: /etc/resolv.conf
             line: 'nameserver 10.1.250.10'
 ```
-## database
-- helping working with database
-## cloud
- - helping work with cloud (aws, azure,...)
 
 # Variable
 - stores information  that varies with each host
