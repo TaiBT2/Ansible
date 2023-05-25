@@ -46,7 +46,8 @@
 ## File
 -  helping work with file
 ### lineinfile
-- Search for a line  in a file and replace it or add it if it doesnlt exits \n
+- Search for a line  in a file and replace it or add it if it doesnlt exits. 
+- .
 `/etc/resolv.conf`
 ```sh
 nameserver 10.2.250.1
