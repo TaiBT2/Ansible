@@ -33,7 +33,7 @@
          state: started
         
 ```
-** started,restarted, stopped**
+**started,restarted, stopped**
 
 ## Commands
 - used to excute command or script on a host (command, expect, raw, script shell)
@@ -47,12 +47,12 @@
 -  helping work with file
 ### lineinfile
 - Search for a line  in a file and replace it or add it if it doesnlt exits
-/etc/resolv.conf
+`/etc/resolv.conf`
 ```sh
 nameserver 10.2.250.1
 nameserver 10.1.250.0
 ```
-playbook.yml
+`playbook.yml`
 ```sh
 -
     name: Add DNS server to resolv.conf
@@ -67,4 +67,6 @@ playbook.yml
 ## cloud
  - helping work with cloud (aws, azure,...)
 
+# Variable
+- stores information  that varies with each host
 
